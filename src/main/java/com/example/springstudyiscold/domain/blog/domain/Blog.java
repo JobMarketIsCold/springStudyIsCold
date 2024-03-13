@@ -3,16 +3,13 @@ package com.example.springstudyiscold.domain.blog.domain;
 import jakarta.persistence.*;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
