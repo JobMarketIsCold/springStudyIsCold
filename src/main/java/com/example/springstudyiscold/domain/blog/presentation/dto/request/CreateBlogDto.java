@@ -8,11 +8,11 @@ public record CreateBlogDto (
    String author
 ){
 
-    public Blog toEntity(String title, String content, String author) {
-    return Blog.builder()
-            .title(title)
-            .content(content)
-            .author(author)
-            .build();
+    public Blog toEntity() {
+        return Blog.builder()
+                .title(this.title)
+                .content(this.content)
+                .author(this.author)
+                .build();
     }
 }
