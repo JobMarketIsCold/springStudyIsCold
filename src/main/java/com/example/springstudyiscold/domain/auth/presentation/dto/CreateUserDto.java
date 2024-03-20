@@ -1,7 +1,7 @@
 package com.example.springstudyiscold.domain.auth.presentation.dto;
 
 import com.example.springstudyiscold.domain.user.domain.User;
-import static com.example.springstudyiscold.domain.user.domain.type.Role.USER;
+import com.example.springstudyiscold.domain.user.domain.type.Role;
 
 
 public record CreateUserDto (
@@ -15,7 +15,7 @@ public record CreateUserDto (
                 .userId(this.userId)
                 .userPassword(this.userPassword)
                 .nickname(this.nickname)
-                .role(USER)
+                .role(Role.USER)
                 .build();
     }
 

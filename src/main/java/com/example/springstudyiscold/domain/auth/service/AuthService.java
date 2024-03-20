@@ -11,21 +11,23 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Transactional
-    public User signup(CreateUserDto createUserDto) {
+    public Optional<User> signup(CreateUserDto createUserDto) {
         User duplicate = userRepository.findByUserId(createUserDto.userId());
         if(duplicate == null) {
-            return userRepository.save(User.builder()
+            return Optional.of(userRepository.save(User.builder()
                     .userId(createUserDto.userId())
                     .userPassword(bCryptPasswordEncoder.encode(createUserDto.getPassword()))
                     .nickname(createUserDto.nickname())
                     .build()
-            );
+            ));
             // return userRepository.save(createUserDto.toEntity());
         };
         throw new DuplicateKeyException("유저 존재");
