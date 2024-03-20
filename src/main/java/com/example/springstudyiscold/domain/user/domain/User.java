@@ -22,4 +22,6 @@ public class User {
     @Column
     private String nickname;
 
+    @Column
+    private Enum role;
 }

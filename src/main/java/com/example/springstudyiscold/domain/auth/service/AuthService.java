@@ -10,10 +10,10 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class AuthService {
     private final UserRepository userRepository;
+    @Transactional
     public User signup(CreateUserDto createUserDto) {
         User duplicate = userRepository.findByUserId(createUserDto.userId());
         System.out.println(duplicate);
