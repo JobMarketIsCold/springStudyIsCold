@@ -6,7 +6,7 @@ spring:
     password: ${db.password}
 
   jpa:
-    show-sql: false
+    show-sql: true
     hibernate:
       ddl-auto: update
     open-in-view: false

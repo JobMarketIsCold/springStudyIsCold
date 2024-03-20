@@ -1,5 +1,6 @@
 package com.example.springstudyiscold.domain.user.domain;
 
+import com.example.springstudyiscold.domain.user.domain.type.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,4 +23,7 @@ public class User {
     @Column
     private String nickname;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
