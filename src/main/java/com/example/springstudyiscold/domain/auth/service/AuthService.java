@@ -20,7 +20,6 @@ public class AuthService {
     public User signup(CreateUserDto createUserDto) {
         User duplicate = userRepository.findByUserId(createUserDto.userId());
         if(duplicate == null) {
-            bCryptPasswordEncoder.encode(createUserDto.getPassword());
             return userRepository.save(User.builder()
                     .userId(createUserDto.userId())
                     .userPassword(bCryptPasswordEncoder.encode(createUserDto.getPassword()))
